@@ -20,13 +20,14 @@ export const Accordion: React.FC<AccordionProps> = ({ children, title, handleCli
 
     }
 
-    return (<div className={`accordionContainer${(isOpen && children) ? " open" : ""}`} onClick={toggleAccordion}>
-        <div className="accordionHeader">
+    return (
+        <div className={`accordionContainer${(isOpen && children) ? " open" : ""}`} onClick={toggleAccordion}>
+            <div className="accordionHeader">
                 <img src={caret} className="caret" alt="close-accordion" />
-            <span>{title}</span>
-        </div>
-        {isOpen &&
-            <>{children}</>
-        }
-    </div>)
+                <span>{title}</span>
+            </div>
+            {isOpen &&
+                <>{children}</>
+            }
+        </div>)
 }

@@ -7,10 +7,13 @@ import { applyMiddleware, createStore } from 'redux';
 import { AppReducer } from './reducers/AppReducer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger'
+import logger from 'redux-logger';
+
+// enable redux logging only for development.
 
 
-const store = createStore(AppReducer, applyMiddleware(thunk, logger));
+const reduxMiddleWaresToApply = process.env.NODE_ENV === "development" ? applyMiddleware(thunk, logger) : applyMiddleware(thunk); 
+const store = createStore(AppReducer, reduxMiddleWaresToApply); 
 
 ReactDOM.render(
   <React.StrictMode>

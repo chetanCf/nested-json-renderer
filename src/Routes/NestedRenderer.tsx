@@ -1,11 +1,7 @@
 import React from "react";
+import { NestedJson } from "../Models/NestedJson";
 import { Accordion } from "../widgets/Accordion/Accordion";
 
-interface NestedJson {
-    name: string;
-    children: Array<NestedJson>;
-    code?: string;
-}
 
 interface NestedRendererProps {
     data: Array<NestedJson>;
@@ -22,10 +18,10 @@ export const NestedRenderer: React.FC<NestedRendererProps> = ({ data, fetchCount
 
     return <div>
         {
-            data.map(currentData => {
+            data.map((currentData, index) => {
                 const { children, name, code } = currentData;
-                // passing name as key, assuming that the names will be unique across siblings
-                return (<Accordion key={name} title={name} handleClick={(isOpen: boolean) => handleAccordionToggle(isOpen, children, code)} code={code}>
+                // passing name as key, assuming that the names will be unique among siblings
+                return (<Accordion key={index} title={name} handleClick={(isOpen: boolean) => handleAccordionToggle(isOpen, children, code)} code={code}>
                     {(currentData.children && currentData.children.length > 0) &&
                         <NestedRenderer data={children} fetchCountiesForContinent={fetchCountiesForContinent} />
                     }

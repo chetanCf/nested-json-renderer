@@ -1,4 +1,4 @@
-import { ApiConstants } from "../Constants/ApiCostants";
+import { ApiConstants } from "../Constants/ApiConstants";
 import { BaseApiUtils } from "./BaseApiUtils";
 
 export class GetCountryInfo extends BaseApiUtils{

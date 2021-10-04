@@ -1,0 +1,26 @@
+.form-container{
+    display: flex;
+    margin-left: 50px;
+    justify-content: space-between;
+    flex-wrap: wrap; /*break form into multiple lines on small screen*/
+}
+
+.error-msg {
+    font-size: 10px;
+    margin-top: 5px;
+    color: red;
+}
+
+.num-input-error{
+    border-color: red;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-label{
+    font-size: 10px;
+    margin-bottom: 5px;
+}
